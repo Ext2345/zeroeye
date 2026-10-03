@@ -78,11 +78,11 @@ RECOMMENDED_ALERT_RULES: List[Dict[str, Any]] = [
     },
     {
         "name": "HighMemoryUsage",
-        "expr": "process_resident_memory_bytes / process_resident_memory_bytes > 0.9",
+        "expr": "process_resident_memory_bytes / machine_memory_bytes > 0.9",
         "duration": "10m",
         "severity": "warning",
         "summary": "High memory usage on {{$labels.instance}}",
-        "description": "Memory usage is above 90% for 10 minutes",
+        "description": "Process resident memory exceeds 90% of total machine memory for 10 minutes",
     },
     {
         "name": "LowDiskSpace",
